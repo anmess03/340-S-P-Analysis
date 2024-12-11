@@ -93,17 +93,15 @@ print("The closing value average for non election year novembers are ", non_elec
 percent_change_averages = ((election_november_average_closing_value - non_election_november_average_closing_value)/non_election_november_average_closing_value)*100
 print("The percent change from average election year novembers and non election year novembers is ", percent_change_averages)
 
-
-#Function to find percent change of closed value data
-# Calculate percent change
+#Calculate percent change for each
 november_election_year_percent_changes = november_election_year_closing_value.pct_change() * 100
 november_non_election_year_percent_changes = november_non_election_year_closing_value.pct_change() * 100
 
+#
 november_election_years = november_election_year_date.dt.year
 november_non_election_years = november_non_election_year_date.dt.year
 
 # Create a plot with both series on the same plot
-
 plt.plot(november_election_years, november_election_year_percent_changes, label='November Election Years', marker='o', markersize = 3)
 plt.plot(november_non_election_years, november_non_election_year_percent_changes, label='November Non-Election Years', marker='o',markersize = 3)
 plt.title('Daily Percent Change in November (Election vs. Non-Election Years)')
